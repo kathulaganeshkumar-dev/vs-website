@@ -1,4 +1,4 @@
-# Varun Systems website
+# Varun Systems website (`vs-website`)
 
 Frontend-only corporate website for Varun Systems. It includes a responsive homepage, company profile, technology expertise directory with individual detail pages, searchable product catalogue, image-led carousels, industries page and contact form.
 
