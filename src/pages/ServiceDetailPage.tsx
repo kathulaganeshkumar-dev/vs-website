@@ -47,7 +47,7 @@ export default function ServiceDetailPage() {
               Equipment selection, coverage and delivery requirements can be
               defined with Varun Systems for your organization.
             </p>
-            <Carousel label={`Scope and capabilities for ${service.title}`} autoPlayMs={7000}>
+            <Carousel label={`Scope and capabilities for ${service.title}`} autoPlayMs={9800}>
               {service.capabilities.map((capability, index) => (
                 <article className="scope-slide" key={capability}>
                   <img src={serviceImage(service)} alt="" loading="lazy" />
@@ -74,7 +74,7 @@ export default function ServiceDetailPage() {
               View all expertise <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <Carousel label="Related expertise" autoPlayMs={7300}>
+          <Carousel label="Related expertise" autoPlayMs={9800}>
             {services.filter((item) => item.slug !== service.slug).slice(0, 6).map((item) => (
               <Link className="related-service-card" key={item.slug} to={`/services/${item.slug}`}>
                 <img src={serviceImage(item)} alt="" loading="lazy" />

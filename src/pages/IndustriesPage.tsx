@@ -43,7 +43,7 @@ export default function IndustriesPage() {
               manufacturing, logistics and other service environments.
             </p>
           </div>
-          <Carousel label="Industry sectors" autoPlayMs={7400}>
+          <Carousel label="Industry sectors" autoPlayMs={10400}>
             {industries.map((group, index) => {
               const Icon = group.icon;
               return (

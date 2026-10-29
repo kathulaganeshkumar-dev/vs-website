@@ -1,9 +1,10 @@
-import { ArrowRight, ArrowUpRight, Server, Wrench, Network, Building2 } from "lucide-react";
+import { ArrowUpRight, Server, Wrench, Network, Building2 } from "lucide-react";
 import { Link } from "react-router";
 import Carousel from "../components/Carousel";
 import IndustryCard from "../components/IndustryCard";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
+import { clientOrganizations } from "../data/clients";
 import { industries } from "../data/industries";
 import { services } from "../data/services";
 
@@ -81,7 +82,7 @@ export default function AboutPage() {
             title="A connected portfolio of products, services and infrastructure."
             body="Varun Systems combines technology supply, technical services and operational support to address organizational requirements."
           />
-          <Carousel label="Business capabilities" autoPlayMs={7100}>
+          <Carousel label="Business capabilities" autoPlayMs={10000}>
             {capabilities.map(({ title, description, image, icon: Icon }, index) => (
               <article className="capability-slide" key={title}>
                 <img src={image} alt="" loading="lazy" />
@@ -111,7 +112,7 @@ export default function AboutPage() {
               Explore industries <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <Carousel label="Sectors served" autoPlayMs={7500}>
+          <Carousel label="Sectors served" autoPlayMs={10400}>
             {industries.map((group) => <IndustryCard key={group.title} group={group} />)}
           </Carousel>
         </div>
@@ -139,17 +140,23 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="simple-cta">
-        <div className="container simple-cta__inner">
-          <div>
-            <p className="eyebrow eyebrow--light">Connect with Varun Systems</p>
-            <h2>Engage Varun Systems for your technology and infrastructure requirements.</h2>
-          </div>
-          <Link className="button button--light" to="/contact">
-            Contact our team <ArrowRight size={17} aria-hidden="true" />
-          </Link>
+      <section className="client-section section-pad" aria-label="Our clients">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Our clients"
+            title="Organizations featured in our company profile."
+            body="A selection of client organizations represented in the Varun Systems company profile."
+          />
+          <ul className="client-logo-grid" aria-label="Client organizations featured in the company profile">
+            {clientOrganizations.map((client) => (
+              <li className="client-logo-grid__item" key={client.name}>
+                <img src={client.image} alt={client.name} loading="lazy" />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
+
     </>
   );
 }

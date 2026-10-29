@@ -115,7 +115,7 @@ export default function HomePage() {
               body="Explore technology supply, infrastructure and operational support capabilities for organizational environments."
             />
           </div>
-          <Carousel label="Our expertise" autoPlayMs={6500}>
+          <Carousel label="Our expertise" autoPlayMs={9800}>
             {services.map((service) => <ServiceCard key={service.slug} service={service} />)}
           </Carousel>
         </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
               Our Products <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <Carousel label="Our products" autoPlayMs={7200}>
+          <Carousel label="Our products" autoPlayMs={10200}>
             {products.map((product) => <ProductCard key={product.slug} product={product} />)}
           </Carousel>
         </div>
@@ -148,7 +148,7 @@ export default function HomePage() {
               body="The company profile lists a broad range of public, private and service-sector environments."
             />
           </div>
-          <Carousel label="Industries served" autoPlayMs={7600}>
+          <Carousel label="Industries served" autoPlayMs={10400}>
             {industries.map((group) => <IndustryCard key={group.title} group={group} />)}
           </Carousel>
         </div>
@@ -169,12 +169,11 @@ export default function HomePage() {
               Read the company profile <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <Carousel label="Why Varun Systems" autoPlayMs={6800}>
-            {strengths.map((item, index) => (
+          <Carousel label="Why Varun Systems" autoPlayMs={10000}>
+            {strengths.map((item) => (
               <article className="strength-card" key={item.title}>
                 <div className="strength-card__visual">
                   <img src={item.image} alt="" loading="lazy" />
-                  <span>{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="strength-card__copy">
                   <h3>{item.title}</h3>

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLocation } from "react-router";
 
 type CarouselProps = {
   label: string;
@@ -8,10 +9,13 @@ type CarouselProps = {
 };
 
 export default function Carousel({ label, children, autoPlayMs }: CarouselProps) {
+  const location = useLocation();
   const carouselRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const wrapTimerRef = useRef<number | undefined>(undefined);
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasKeyboardFocus, setHasKeyboardFocus] = useState(false);
   const cloneCount = children.length > 3 ? 3 : 0;
 
   const normalizePosition = useCallback((track = trackRef.current) => {
@@ -47,7 +51,32 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (wrapTimerRef.current !== undefined) window.clearTimeout(wrapTimerRef.current);
-    track.scrollTo({ left: slides[target].offsetLeft, behavior: reducedMotion ? "auto" : "smooth" });
+    if (animationFrameRef.current !== undefined) {
+      window.cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = undefined;
+    }
+
+    const from = track.scrollLeft;
+    const to = slides[target].offsetLeft;
+    if (reducedMotion || Math.abs(to - from) < 1) {
+      track.scrollLeft = to;
+    } else {
+      const startedAt = performance.now();
+      const duration = 1100;
+      const animate = (now: number) => {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        track.scrollLeft = from + (to - from) * eased;
+        if (progress < 1) {
+          animationFrameRef.current = window.requestAnimationFrame(animate);
+        } else {
+          animationFrameRef.current = undefined;
+        }
+      };
+      animationFrameRef.current = window.requestAnimationFrame(animate);
+    }
 
     const wrapsForward = cloneCount > 0 && next > lastOriginal;
     const wrapsBackward = cloneCount > 0 && next < firstOriginal;
@@ -55,7 +84,7 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
       if (reducedMotion) {
         normalizePosition(track);
       } else {
-        wrapTimerRef.current = window.setTimeout(() => normalizePosition(track), 700);
+        wrapTimerRef.current = window.setTimeout(() => normalizePosition(track), 1200);
       }
     }
   }, [children.length, cloneCount, normalizePosition]);
@@ -63,10 +92,19 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
   useLayoutEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+    if (animationFrameRef.current !== undefined) {
+      window.cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = undefined;
+    }
+    if (wrapTimerRef.current !== undefined) {
+      window.clearTimeout(wrapTimerRef.current);
+      wrapTimerRef.current = undefined;
+    }
     const firstOriginal = cloneCount;
     const slides = Array.from(track.children) as HTMLElement[];
+    track.scrollLeft = 0;
     track.scrollLeft = slides[firstOriginal]?.offsetLeft ?? 0;
-  }, [children.length, cloneCount]);
+  }, [children.length, cloneCount, location.pathname]);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -83,13 +121,22 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
   }, [autoPlayMs, children.length]);
 
   useEffect(() => {
-    if (!autoPlayMs || !isVisible || children.length < 2) return;
-    const timer = window.setInterval(() => move(1), autoPlayMs);
+    if (
+      !autoPlayMs ||
+      !isVisible ||
+      hasKeyboardFocus ||
+      children.length < 2 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) move(1);
+    }, autoPlayMs);
     return () => window.clearInterval(timer);
-  }, [autoPlayMs, children.length, isVisible, move]);
+  }, [autoPlayMs, children.length, hasKeyboardFocus, isVisible, move]);
 
   useEffect(() => () => {
     if (wrapTimerRef.current !== undefined) window.clearTimeout(wrapTimerRef.current);
+    if (animationFrameRef.current !== undefined) window.cancelAnimationFrame(animationFrameRef.current);
   }, []);
 
   const slides = [
@@ -110,6 +157,12 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
+      onFocusCapture={() => setHasKeyboardFocus(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setHasKeyboardFocus(false);
+        }
+      }}
     >
       <div className="carousel__arrows">
         <button className="carousel__control" type="button" onClick={() => move(-1)} aria-label={`Previous ${label} slide`}>
