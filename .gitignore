@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+.env*
+!.env.example
+
+# Local reference material supplied for the website project
+Recording 2026-10-28 180914.mp4
+Recording 2026-10-28 181342.mp4
+Recording 2026-10-28 181636.mp4
+Varun Systems Company Profile.pdf
+Varun Systems_Company Profile.pdf
+Screenshot 2026-10-28 180531.png
+Screenshot 2026-10-28 180613.png
+Screenshot 2026-10-28 180712.png
+Screenshot 2026-10-28 180737.png
+main design template.png
+dist vercel.zip
+.vercel/
