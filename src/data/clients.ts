@@ -27,4 +27,3 @@ export const clientOrganizations = [
   { name: "DigiFlex", image: "/images/clients/digiflex.webp" },
   { name: "Vessella Group", image: "/images/clients/vessella-group.webp" },
 ] as const;
-
