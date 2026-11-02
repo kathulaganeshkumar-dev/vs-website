@@ -6,14 +6,25 @@ const infrastructureImage = "/images/network-support.webp";
 const teamImage = "/images/team-workspace.webp";
 
 export function serviceImage(service: Service) {
-  if (service.slug === "it-products-and-supply") return "/images/hero-workspace.webp";
-  if (service.slug === "computer-maintenance-and-repair" || service.slug === "annual-maintenance-contracts") {
-    return "/images/copier-support.webp";
-  }
-  if (service.slug === "fire-alarm-and-pa-systems") return "/images/fire-alarm-systems.webp";
-  if (["cloud-managed-services", "server-and-storage-solutions", "networking-solutions", "network-installation-and-maintenance", "data-center-and-power-solutions"].includes(service.slug)) {
-    return "/images/network-support.webp";
-  }
+  const expertiseImages: Record<string, string> = {
+    "it-products-and-supply": "/images/expertise/it-products-and-supply.jpg",
+    "computer-maintenance-and-repair": "/images/expertise/computer-maintenance-and-repair.jpg",
+    "network-installation-and-maintenance": "/images/expertise/network-installation-and-maintenance.jpg",
+    "annual-maintenance-contracts": "/images/expertise/annual-maintenance-contracts.jpg",
+    "networking-solutions": "/images/expertise/networking-solutions.jpg",
+    "cctv-and-surveillance": "/images/expertise/cctv-and-surveillance.jpg",
+    "fire-alarm-and-pa-systems": "/images/expertise/fire-alarm-and-pa-systems.jpg",
+    "biometric-attendance-and-access-control": "/images/expertise/biometric-attendance-and-access-control.jpg",
+    "cloud-managed-services": "/images/expertise/cloud-managed-services.jpg",
+    "server-and-storage-solutions": "/images/expertise/server-and-storage-solutions.jpg",
+    "interactive-panels": "/images/expertise/interactive-panels.jpg",
+    "enterprise-av-and-collaboration": "/images/expertise/enterprise-av-and-collaboration.jpg",
+    "data-center-and-power-solutions": "/images/expertise/data-center-and-power-solutions.jpg",
+    "facility-management": "/images/expertise/facility-management.jpg",
+    "manpower-supply": "/images/expertise/manpower-supply.jpg",
+    "printer-copier-ups-services": "/images/expertise/printer-copier-ups-services.jpg",
+  };
+  if (expertiseImages[service.slug]) return expertiseImages[service.slug];
   if (service.image) return service.image;
   if (["it-products-and-supply", "server-and-storage-solutions", "cloud-managed-services", "data-center-and-power-solutions"].includes(service.slug)) {
     return infrastructureImage;
