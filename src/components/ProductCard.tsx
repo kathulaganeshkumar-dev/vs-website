@@ -8,6 +8,8 @@ export default function ProductCard({
 }: {
   product: Product;
 }) {
+  const Icon = product.icon;
+
   return (
     <article className="product-card">
       <Link
@@ -16,6 +18,9 @@ export default function ProductCard({
         aria-label={`Enquire about ${product.name}`}
       >
         <img src={productImage(product)} alt="" loading="lazy" />
+        <span className="product-card__visual-mark" aria-hidden="true" />
+        <Icon size={54} strokeWidth={1.25} aria-hidden="true" />
+        <span className="product-card__visual-caption">Varun Systems</span>
       </Link>
       <div className="product-card__content">
         <span className="tag">{product.category}</span>
