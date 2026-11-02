@@ -41,10 +41,10 @@ export function serviceImage(service: Service) {
 
 export function industryImage(group: IndustryGroup) {
   const title = group.title.toLowerCase();
-  if (title.includes("government")) return "/images/hero-workspace.webp";
-  if (title.includes("manufacturing")) return "/images/copier-support.webp";
-  if (title.includes("infrastructure") || title.includes("service")) return "/images/cctv-systems.webp";
-  if (title.includes("corporate")) return infrastructureImage;
+  if (title.includes("government")) return "/images/industries/government-sector.jpg";
+  if (title.includes("manufacturing")) return "/images/industries/manufacturing-industrial-sector.png";
+  if (title.includes("infrastructure") || title.includes("service")) return "/images/industries/infrastructure-service-sector.jpg";
+  if (title.includes("corporate")) return "/images/industries/private-sector.jpg";
   return "/images/team-workspace.webp";
 }
 
