@@ -9,7 +9,7 @@ export default function IndustryCard({ group }: { group: IndustryGroup }) {
   return (
     <article className="industry-card">
       <div className="industry-card__visual">
-        <img src={industryImage(group)} alt="" loading="lazy" />
+        <img src={industryImage(group)} alt={`${group.title} sector`} loading="lazy" />
       </div>
       <div className="industry-card__heading">
         <span className="icon-frame icon-frame--tint">
