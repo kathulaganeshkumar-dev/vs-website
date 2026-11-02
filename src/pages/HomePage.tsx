@@ -7,6 +7,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Link } from "react-router";
+import { useState } from "react";
 import IndustryCard from "../components/IndustryCard";
 import ProductCard from "../components/ProductCard";
 import Carousel from "../components/Carousel";
@@ -14,6 +15,7 @@ import SectionHeading from "../components/SectionHeading";
 import ServiceCard from "../components/ServiceCard";
 import Seo from "../components/Seo";
 import { company } from "../data/company";
+import { brandLogos } from "../data/brands";
 import { industries } from "../data/industries";
 import { products } from "../data/products";
 import { services } from "../data/services";
@@ -47,6 +49,8 @@ const strengths = [
 ];
 
 export default function HomePage() {
+  const [brandsPaused, setBrandsPaused] = useState(false);
+
   return (
     <>
       <Seo
@@ -84,6 +88,36 @@ export default function HomePage() {
               <span>Technology delivery · Infrastructure · Lifecycle support</span>
             </div>
           </div>
+        </div>
+        <div
+          className={`hero-brand-marquee${brandsPaused ? " is-paused" : ""}`}
+          role="region"
+          aria-label="Technology brand partners"
+        >
+          <div className="hero-brand-marquee__track">
+            {[0, 1].map((copy) => (
+              <ul
+                className="hero-brand-marquee__group"
+                key={copy}
+                aria-hidden={copy === 1 || undefined}
+              >
+                {brandLogos.map((brand) => (
+                  <li className="hero-brand-marquee__item" key={`${copy}-${brand.name}`}>
+                    <img src={brand.image} alt={brand.name} loading="lazy" />
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+          <button
+            className="hero-brand-marquee__toggle"
+            type="button"
+            aria-label={brandsPaused ? "Play brand logo carousel" : "Pause brand logo carousel"}
+            aria-pressed={brandsPaused}
+            onClick={() => setBrandsPaused((paused) => !paused)}
+          >
+            {brandsPaused ? "Play" : "Pause"}
+          </button>
         </div>
       </section>
 

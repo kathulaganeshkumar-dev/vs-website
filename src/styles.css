@@ -3611,6 +3611,101 @@ textarea:focus-visible {
   content: "";
 }
 
+.hero-brand-marquee {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  height: 88px;
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 -12px 36px rgba(35, 25, 41, 0.16);
+}
+
+.hero-brand-marquee::before,
+.hero-brand-marquee::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  pointer-events: none;
+  content: "";
+}
+
+.hero-brand-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+}
+
+.hero-brand-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+}
+
+.hero-brand-marquee__track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: hero-brand-marquee-scroll 90s linear infinite;
+  will-change: transform;
+}
+
+.hero-brand-marquee:hover .hero-brand-marquee__track,
+.hero-brand-marquee.is-paused .hero-brand-marquee__track {
+  animation-play-state: paused;
+}
+
+.hero-brand-marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-brand-marquee__item {
+  display: grid;
+  width: 170px;
+  height: 72px;
+  flex-shrink: 0;
+  place-items: center;
+  padding: 10px 20px;
+  border-right: 1px solid rgba(118, 57, 127, 0.08);
+}
+
+.hero-brand-marquee__item img {
+  width: 100%;
+  height: 52px;
+  object-fit: contain;
+}
+
+.hero-brand-marquee__toggle {
+  position: absolute;
+  z-index: 4;
+  right: 14px;
+  bottom: 10px;
+  min-width: 48px;
+  min-height: 44px;
+  padding: 8px 10px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(118, 57, 127, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+@keyframes hero-brand-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .hero--video .hero-grid {
   z-index: 1;
   inset: 0;
@@ -3858,6 +3953,10 @@ textarea:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .hero__video-bg video {
+    animation: none;
+  }
+
+  .hero-brand-marquee__track {
     animation: none;
   }
 }
