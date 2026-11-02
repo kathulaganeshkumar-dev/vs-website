@@ -3997,7 +3997,9 @@ textarea:focus-visible {
 
 .industry-card__visual img {
   display: block;
+  object-fit: contain;
   object-position: center;
+  background: #fff;
 }
 
 .industry-card__heading {
