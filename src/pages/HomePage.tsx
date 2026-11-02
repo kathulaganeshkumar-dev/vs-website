@@ -155,7 +155,7 @@ export default function HomePage() {
               Our Products <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <Carousel label="Our products" autoPlayMs={10200}>
+          <Carousel label="Our products" autoPlayMs={5000}>
             {products.map((product) => <ProductCard key={product.slug} product={product} />)}
           </Carousel>
         </div>
@@ -170,7 +170,7 @@ export default function HomePage() {
               body="The company profile lists a broad range of public, private and service-sector environments."
             />
           </div>
-          <Carousel label="Industries served" autoPlayMs={10400}>
+          <Carousel label="Industries served" autoPlayMs={5000}>
             {industries.map((group) => <IndustryCard key={group.title} group={group} />)}
           </Carousel>
         </div>
