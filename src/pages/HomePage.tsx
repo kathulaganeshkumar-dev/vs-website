@@ -137,7 +137,7 @@ export default function HomePage() {
               body="Explore technology supply, infrastructure and operational support capabilities for organizational environments."
             />
           </div>
-          <Carousel label="Our expertise" autoPlayMs={9800}>
+          <Carousel label="Our expertise" autoPlayMs={5000}>
             {services.map((service) => <ServiceCard key={service.slug} service={service} />)}
           </Carousel>
         </div>
