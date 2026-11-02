@@ -3653,11 +3653,6 @@ textarea:focus-visible {
   will-change: transform;
 }
 
-.hero-brand-marquee:hover .hero-brand-marquee__track,
-.hero-brand-marquee.is-paused .hero-brand-marquee__track {
-  animation-play-state: paused;
-}
-
 .hero-brand-marquee__group {
   display: flex;
   flex-shrink: 0;
@@ -3682,23 +3677,6 @@ textarea:focus-visible {
   width: 100%;
   height: 52px;
   object-fit: contain;
-}
-
-.hero-brand-marquee__toggle {
-  position: absolute;
-  z-index: 4;
-  right: 14px;
-  bottom: 10px;
-  min-width: 48px;
-  min-height: 44px;
-  padding: 8px 10px;
-  color: var(--ink);
-  font-size: 0.72rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(118, 57, 127, 0.18);
-  border-radius: 999px;
-  cursor: pointer;
 }
 
 @keyframes hero-brand-marquee-scroll {

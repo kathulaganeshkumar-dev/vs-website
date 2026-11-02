@@ -7,7 +7,6 @@ import {
   Phone,
 } from "lucide-react";
 import { Link } from "react-router";
-import { useState } from "react";
 import IndustryCard from "../components/IndustryCard";
 import ProductCard from "../components/ProductCard";
 import Carousel from "../components/Carousel";
@@ -49,8 +48,6 @@ const strengths = [
 ];
 
 export default function HomePage() {
-  const [brandsPaused, setBrandsPaused] = useState(false);
-
   return (
     <>
       <Seo
@@ -90,7 +87,7 @@ export default function HomePage() {
           </div>
         </div>
         <div
-          className={`hero-brand-marquee${brandsPaused ? " is-paused" : ""}`}
+          className="hero-brand-marquee"
           role="region"
           aria-label="Technology brand partners"
         >
@@ -109,15 +106,6 @@ export default function HomePage() {
               </ul>
             ))}
           </div>
-          <button
-            className="hero-brand-marquee__toggle"
-            type="button"
-            aria-label={brandsPaused ? "Play brand logo carousel" : "Pause brand logo carousel"}
-            aria-pressed={brandsPaused}
-            onClick={() => setBrandsPaused((paused) => !paused)}
-          >
-            {brandsPaused ? "Play" : "Pause"}
-          </button>
         </div>
       </section>
 
