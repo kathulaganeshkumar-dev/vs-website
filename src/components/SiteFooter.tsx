@@ -32,13 +32,12 @@ export default function SiteFooter() {
         <div className="site-footer__column">
           <h2>Our Expertise</h2>
           {[
-            services[1],
-            services[2],
-            services[3],
-            services[5],
-            services[9],
-            services[11],
-          ].map((service) => (
+            services.find((service) => service.slug === "computer-maintenance-and-amc"),
+            services.find((service) => service.slug === "network-installation-and-networking-solutions"),
+            services.find((service) => service.slug === "cctv-and-surveillance"),
+            services.find((service) => service.slug === "server-and-storage-solutions"),
+            services.find((service) => service.slug === "enterprise-av-and-collaboration"),
+          ].filter((service): service is NonNullable<typeof service> => Boolean(service)).map((service) => (
             <Link key={service.slug} to={`/services/${service.slug}`}>
               {service.shortTitle}
             </Link>

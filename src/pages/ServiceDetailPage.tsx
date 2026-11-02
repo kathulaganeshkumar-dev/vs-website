@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router";
 import Carousel from "../components/Carousel";
 import Seo from "../components/Seo";
@@ -10,6 +10,22 @@ export default function ServiceDetailPage() {
   const service = getService(slug);
 
   if (!service) return <Navigate to="/not-found" replace />;
+  if (slug === "network-installation-and-maintenance" || slug === "networking-solutions") {
+    return <Navigate to={`/services/${service.slug}`} replace />;
+  }
+  if (slug === "fire-alarm-and-pa-systems") {
+    return <Navigate to={`/services/${service.slug}`} replace />;
+  }
+  if (slug === "printer-copier-ups-services") {
+    return <Navigate to={`/services/${service.slug}`} replace />;
+  }
+  if (
+    slug === "computer-maintenance-and-repair" ||
+    slug === "annual-maintenance-contracts" ||
+    slug === "data-center-and-power-solutions"
+  ) {
+    return <Navigate to={`/services/${service.slug}`} replace />;
+  }
 
   const imageAlt = `${service.title} service`;
 
@@ -26,7 +42,6 @@ export default function ServiceDetailPage() {
               <ArrowLeft size={16} aria-hidden="true" />
               All expertise
             </Link>
-            <p className="eyebrow">Expertise overview</p>
             <h1>{service.title}</h1>
             <p>{service.introduction}</p>
           </div>
@@ -48,13 +63,11 @@ export default function ServiceDetailPage() {
               defined with Varun Systems for your organization.
             </p>
             <Carousel label={`Scope and capabilities for ${service.title}`} autoPlayMs={9800}>
-              {service.capabilities.map((capability, index) => (
+              {service.capabilities.map((capability) => (
                 <article className="scope-slide" key={capability}>
                   <img src={serviceImage(service)} alt="" loading="lazy" />
                   <div className="scope-slide__content">
-                    <span>{String(index + 1).padStart(2, "0")} / {String(service.capabilities.length).padStart(2, "0")}</span>
                     <h3>{capability}</h3>
-                    <Check size={18} aria-hidden="true" />
                   </div>
                 </article>
               ))}

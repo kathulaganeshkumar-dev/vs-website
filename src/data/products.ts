@@ -28,7 +28,7 @@ export type ProductCategory =
   | "Security"
   | "Meeting & learning"
   | "Software & licensing"
-  | "Data center & power";
+  | "Data center";
 
 export type Product = {
   slug: string;
@@ -47,7 +47,7 @@ export const productCategories: Array<"All categories" | ProductCategory> = [
   "Security",
   "Meeting & learning",
   "Software & licensing",
-  "Data center & power",
+  "Data center",
 ];
 
 export const products: Product[] = [
@@ -164,10 +164,17 @@ export const products: Product[] = [
     icon: Shield,
   },
   {
-    slug: "fire-alarm-and-pa-equipment",
-    name: "Fire Alarm and PA Equipment",
+    slug: "fire-alarm-equipment",
+    name: "Fire Alarm Equipment",
     category: "Security",
-    description: "Fire alarm detection and public address system equipment.",
+    description: "Fire alarm panels, detectors, call points and alarm notification equipment.",
+    icon: Speaker,
+  },
+  {
+    slug: "public-address-equipment",
+    name: "Public Address Equipment",
+    category: "Security",
+    description: "Amplifiers, speakers, microphones and zone paging equipment.",
     icon: Speaker,
   },
   {
@@ -201,21 +208,21 @@ export const products: Product[] = [
   {
     slug: "server-racks",
     name: "Server Racks",
-    category: "Data center & power",
+    category: "Data center",
     description: "Rack equipment for server-room and data-center environments.",
     icon: Server,
   },
   {
     slug: "power-distribution-units",
     name: "Power Distribution Units (PDUs)",
-    category: "Data center & power",
+    category: "Data center",
     description: "Power distribution units for infrastructure environments.",
     icon: Battery,
   },
   {
     slug: "data-center-infrastructure",
     name: "Data Center Infrastructure",
-    category: "Data center & power",
+    category: "Data center",
     description: "Infrastructure categories for server-room and data-center requirements.",
     icon: Server,
   },

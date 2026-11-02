@@ -1010,10 +1010,6 @@ textarea:focus-visible {
   border: 1px solid var(--border);
 }
 
-.industry-card__heading {
-  margin-bottom: 20px;
-}
-
 .industry-card h3 {
   margin-bottom: 9px;
   font-size: 1.08rem;
@@ -1034,26 +1030,9 @@ textarea:focus-visible {
 
 .industry-card li {
   position: relative;
-  padding-left: 13px;
   color: #534d56;
   font-size: 0.86rem;
   line-height: 1.38;
-}
-
-.industry-card li::before {
-  position: absolute;
-  top: 0.58em;
-  left: 0;
-  width: 4px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 50%;
-  content: "";
-}
-
-.industry-card .industry-card__more {
-  color: var(--brand);
-  font-weight: 600;
 }
 
 .industry-card .text-link {
@@ -1465,6 +1444,37 @@ textarea:focus-visible {
   color: #544f58;
   font-size: 1.06rem;
   line-height: 1.72;
+}
+
+.client-trust {
+  background: var(--paper);
+}
+
+.client-trust .section-heading {
+  max-width: 760px;
+}
+
+.client-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.client-logo-card {
+  min-height: 118px;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.client-logo-card img {
+  width: 100%;
+  height: 82px;
+  object-fit: contain;
 }
 
 .source-note {
@@ -2379,21 +2389,13 @@ textarea:focus-visible {
 }
 
 .industry-detail-card {
+  width: 100%;
+  min-width: 0;
   padding: 25px 25px 22px;
   background: var(--paper);
   border: 1px solid var(--border);
-}
-
-.industry-detail-card__header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.industry-detail-card__index {
-  color: #ab9aac;
-  font-family: "Lexend", sans-serif;
-  font-size: 0.78rem;
+  flex-direction: column;
 }
 
 .industry-detail-card h3 {
@@ -2424,12 +2426,6 @@ textarea:focus-visible {
   color: #49434d;
   font-size: 0.9rem;
   line-height: 1.42;
-}
-
-.industry-detail-card li svg {
-  flex: 0 0 auto;
-  margin-top: 3px;
-  color: var(--brand);
 }
 
 .contact-page__hero {
@@ -3886,16 +3882,13 @@ textarea:focus-visible {
 }
 
 .carousel__arrows {
-  position: absolute;
-  z-index: 4;
-  top: 87px;
-  right: 0;
-  left: 0;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
-  pointer-events: none;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+  pointer-events: auto;
 }
 
 .carousel__control {
@@ -4080,10 +4073,6 @@ textarea:focus-visible {
   background: #fff;
 }
 
-.industry-card__heading {
-  display: none;
-}
-
 .industry-card h3 {
   min-height: 2.5em;
 }
@@ -4264,10 +4253,22 @@ textarea:focus-visible {
   margin-top: 36px;
 }
 
+.industry-page-section .carousel__track {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.industry-page-section .carousel__slide {
+  display: flex;
+  align-items: stretch;
+}
+
 .industry-detail-card__visual {
   position: relative;
   overflow: hidden;
-  height: 164px;
+  width: calc(100% + 50px);
+  height: 210px;
+  flex: 0 0 210px;
   margin: -25px -25px 19px;
   background: var(--tint);
 }
@@ -4275,7 +4276,10 @@ textarea:focus-visible {
 .industry-detail-card__visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #fff;
 }
 
 .industry-detail-card h3 {
@@ -4300,6 +4304,10 @@ textarea:focus-visible {
 @media (max-width: 1050px) {
   .carousel__track {
     grid-auto-columns: calc((100% - 15px) / 2);
+  }
+
+  .client-logo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -4344,8 +4352,24 @@ textarea:focus-visible {
     gap: 12px;
   }
 
-  .carousel__arrows {
-    top: 115px;
+  .industry-detail-card__visual {
+    width: calc(100% + 40px);
+    height: 180px;
+    flex-basis: 180px;
+  }
+
+  .client-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .client-logo-card {
+    min-height: 96px;
+    padding: 12px;
+  }
+
+  .client-logo-card img {
+    height: 68px;
   }
 
   .carousel__control {
@@ -4374,7 +4398,9 @@ textarea:focus-visible {
   }
 
   .industry-detail-card__visual {
+    width: calc(100% + 40px);
     height: 145px;
+    flex-basis: 145px;
     margin: -20px -20px 16px;
   }
 }
@@ -4444,10 +4470,6 @@ textarea:focus-visible {
   grid-row: 2;
 }
 
-.carousel__arrows {
-  top: 74px;
-}
-
 .carousel__track {
   scroll-behavior: auto;
 }
@@ -4513,10 +4535,6 @@ textarea:focus-visible {
     height: min(68vw, 290px);
     gap: 6px;
     padding: 6px;
-  }
-
-  .carousel__arrows {
-    top: 65px;
   }
 
   .brand img {

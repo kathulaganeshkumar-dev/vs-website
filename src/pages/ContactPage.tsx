@@ -13,7 +13,6 @@ export default function ContactPage() {
       <section className="page-hero page-hero--contact">
         <div className="container contact-page__hero">
           <div className="page-hero__copy">
-            <p className="eyebrow">Contact Varun Systems</p>
             <h1>Discuss your technologies and infrastructure requirements.</h1>
           </div>
           <figure className="contact-page__visual" role="img" aria-label="Varun Systems professionals collaborating on technology infrastructure" />

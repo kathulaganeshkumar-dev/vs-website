@@ -8,7 +8,8 @@ type CarouselProps = {
   autoPlayMs?: number;
 };
 
-export default function Carousel({ label, children, autoPlayMs }: CarouselProps) {
+export default function Carousel({ label, children, autoPlayMs: _autoPlayMs }: CarouselProps) {
+  const autoPlayMs = 4000;
   const location = useLocation();
   const carouselRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -157,6 +158,20 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
         }
       }}
     >
+      <div className="carousel__track" ref={trackRef}>
+        {slides.map(({ child, key, clone }) => (
+          <div
+            className="carousel__slide"
+            key={key}
+            role="group"
+            aria-roledescription="slide"
+            aria-hidden={clone || undefined}
+            inert={clone || undefined}
+          >
+            {child}
+          </div>
+        ))}
+      </div>
       <div className="carousel__arrows">
         <button className="carousel__control" type="button" onClick={() => move(-1)} aria-label={`Previous ${label} slide`}>
           <ArrowLeft size={18} aria-hidden="true" />
@@ -164,21 +179,6 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
         <button className="carousel__control" type="button" onClick={() => move(1)} aria-label={`Next ${label} slide`}>
           <ArrowRight size={18} aria-hidden="true" />
         </button>
-      </div>
-      <div className="carousel__track" ref={trackRef}>
-        {slides.map(({ child, index, key, clone }) => (
-          <div
-            className="carousel__slide"
-            key={key}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${index + 1} of ${children.length}`}
-            aria-hidden={clone || undefined}
-            inert={clone || undefined}
-          >
-            {child}
-          </div>
-        ))}
       </div>
     </div>
   );

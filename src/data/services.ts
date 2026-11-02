@@ -11,7 +11,6 @@ import {
   Printer,
   Radio,
   Server,
-  Users,
   Wrench,
 } from "lucide-react";
 
@@ -47,13 +46,13 @@ export const services: Service[] = [
     relatedProducts: ["Desktop computers", "Servers", "Network equipment"],
   },
   {
-    slug: "computer-maintenance-and-repair",
-    title: "Computer Maintenance and Repair",
-    shortTitle: "Computer maintenance",
+    slug: "computer-maintenance-and-amc",
+    title: "Computer Maintenance and Annual Maintenance Contracts",
+    shortTitle: "Computer maintenance & AMC",
     description:
-      "Hardware maintenance, troubleshooting and repair support across common business equipment.",
+      "Computer repair and scheduled annual maintenance support across business desktops, laptops, servers and peripherals.",
     introduction:
-      "The company profile describes maintenance and repair for computers and related equipment, together with software troubleshooting and remote support.",
+      "Varun Systems provides both on-demand computer maintenance and planned annual maintenance contracts covering hardware, software, peripherals, servers and related IT infrastructure.",
     capabilities: [
       "Desktop, laptop and server maintenance and repair",
       "Printer, scanner, monitor and UPS repair",
@@ -61,66 +60,38 @@ export const services: Service[] = [
       "Operating system debugging and virus removal",
       "Hard drive data recovery",
       "Remote management and monitoring support",
+      "Scheduled preventive maintenance visits",
+      "Annual maintenance contracts for organizational IT equipment",
+      "Computer, printer, copier and network maintenance coverage",
+      "Fault reporting and technical support coordination",
     ],
     icon: Wrench,
     image: "/images/network-support.webp",
-    relatedProducts: ["Desktop computers", "Laptops", "Printers"],
+    relatedProducts: ["Desktop computers", "Laptops", "Printers", "UPS systems"],
   },
   {
-    slug: "network-installation-and-maintenance",
-    title: "Network Installation and Maintenance",
-    shortTitle: "Network installation",
+    slug: "network-installation-and-networking-solutions",
+    title: "Network Installation and Networking Solutions",
+    shortTitle: "Network installation & solutions",
     description:
-      "Structured cabling, wireless access, configuration and ongoing network support.",
+      "LAN, WAN, structured cabling, wireless access, configuration and ongoing network support.",
     introduction:
-      "Varun Systems' profile outlines wired and wireless network installations, LAN, MAN and WAN configuration, and support for network infrastructure.",
+      "Varun Systems provides end-to-end networking capabilities covering network design, wired and wireless installation, LAN, MAN and WAN configuration, maintenance and infrastructure support.",
     capabilities: [
       "Wired networks using CAT5e and CAT6 cabling",
       "Wireless networks and Wi-Fi access points",
       "LAN, MAN and WAN configuration",
+      "Local Area Network (LAN) solutions",
+      "Wide Area Network (WAN) solutions",
+      "Network design, installation and configuration",
       "Router, switch and network module troubleshooting",
       "Firewall and proxy server configuration",
       "Remote network management and monitoring",
       "Mail, file and web server installation and configuration",
+      "Network maintenance and infrastructure support",
     ],
     icon: Network,
     image: "/images/network-support.webp",
-    relatedProducts: ["Network equipment", "Servers"],
-  },
-  {
-    slug: "annual-maintenance-contracts",
-    title: "Annual Maintenance Contracts (AMC)",
-    shortTitle: "Annual maintenance",
-    description:
-      "Ongoing technical maintenance across computer, network, print and power equipment.",
-    introduction:
-      "The company profile describes AMC support for organizational environments, with maintenance across computer systems and selected IT infrastructure.",
-    capabilities: [
-      "Computer, desktop and laptop maintenance",
-      "Server and LAN maintenance",
-      "Printer and copier maintenance",
-      "UPS and network maintenance",
-      "Related technical support",
-    ],
-    icon: Activity,
-    relatedProducts: ["Computers", "Printers", "UPS systems"],
-  },
-  {
-    slug: "networking-solutions",
-    title: "Networking Solutions",
-    shortTitle: "Networking solutions",
-    description:
-      "LAN and WAN solutions to connect devices and locations within an organization.",
-    introduction:
-      "Varun Systems describes experience in the design, installation and maintenance of LAN and WAN networks, with support for connected devices and infrastructure.",
-    capabilities: [
-      "Local Area Network (LAN) solutions",
-      "Wide Area Network (WAN) solutions",
-      "Network design, installation and configuration",
-      "Network maintenance and troubleshooting",
-      "Network infrastructure support",
-    ],
-    icon: Network,
     relatedProducts: ["Network equipment", "Servers"],
   },
   {
@@ -143,21 +114,47 @@ export const services: Service[] = [
     relatedProducts: ["HD and IP CCTV cameras", "DVR and NVR systems"],
   },
   {
-    slug: "fire-alarm-and-pa-systems",
-    title: "Fire Alarm Detection and Public Address",
-    shortTitle: "Fire alarm & PA",
+    slug: "fire-alarm-systems",
+    title: "Fire Alarm Systems",
+    shortTitle: "Fire alarm systems",
     description:
-      "Enterprise fire detection and public address equipment for safety and communication needs.",
+      "Fire detection, alarm, evacuation notification and maintenance support for organizational environments.",
     introduction:
-      "Varun Systems' profile lists enterprise fire alarm detection and public address systems as part of its service offering.",
+      "Varun Systems provides enterprise fire alarm system enquiries covering detection equipment, alarm devices, system configuration, installation coordination and ongoing support.",
     capabilities: [
-      "Enterprise fire alarm detection systems",
-      "Public Address (PA) systems",
-      "Related installation and support enquiries",
+      "Fire alarm control panels",
+      "Smoke and heat detectors",
+      "Manual call points and alarm devices",
+      "Sounders, horns and evacuation notification",
+      "Fire alarm system design and configuration",
+      "Equipment installation and system integration",
+      "Testing, commissioning and maintenance support",
+      "Monitoring and fault-troubleshooting enquiries",
     ],
     icon: Radio,
     image: "/images/fire-alarm-systems.webp",
-    relatedProducts: ["Fire alarm and PA equipment"],
+    relatedProducts: ["Fire alarm equipment"],
+  },
+  {
+    slug: "public-address-systems",
+    title: "Public Address Systems",
+    shortTitle: "Public address systems",
+    description:
+      "PA and voice communication systems for announcements, paging and background audio.",
+    introduction:
+      "Varun Systems supplies and supports public address system requirements for clear communication across offices, institutions, commercial premises and public facilities.",
+    capabilities: [
+      "Public address and voice communication systems",
+      "Amplifiers and speaker selection",
+      "Microphones and paging equipment",
+      "Zone-based announcements",
+      "Background music and scheduled audio",
+      "System integration and installation support",
+      "Testing, maintenance and troubleshooting",
+    ],
+    icon: Radio,
+    image: "/images/fire-alarm-systems.webp",
+    relatedProducts: ["Public address equipment"],
   },
   {
     slug: "biometric-attendance-and-access-control",
@@ -235,12 +232,11 @@ export const services: Service[] = [
     description:
       "Display, audio and conferencing systems for learning, meetings and collaboration.",
     introduction:
-      "The newer company profile groups interactive flat panels, video conferencing, professional audio, public address and meeting-room solutions under enterprise AV and collaboration.",
+      "The newer company profile groups interactive flat panels, video conferencing, professional audio and meeting-room solutions under enterprise AV and collaboration.",
     capabilities: [
       "Interactive flat panel displays",
       "Video conferencing systems",
       "Professional audio systems",
-      "Public Address (PA) systems",
       "Meeting-room solutions",
     ],
     icon: Presentation,
@@ -251,61 +247,83 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "data-center-and-power-solutions",
-    title: "Data Center and Power Solutions",
-    shortTitle: "Data center & power",
+    slug: "data-center-solutions",
+    title: "Data Center Solutions",
+    shortTitle: "Data center solutions",
     description:
-      "Server-room infrastructure and power equipment for organizational environments.",
+      "Planning, infrastructure and support for reliable server-room and data-center environments.",
     introduction:
-      "The newer company profile lists server racks, UPS systems, power distribution units and data-center infrastructure alongside its server and storage capabilities.",
+      "Varun Systems supports data-center requirements with server racks, structured infrastructure, power distribution planning, cooling coordination and equipment organization for dependable operations.",
     capabilities: [
       "Server racks",
-      "UPS systems",
+      "Rack installation and equipment organization",
       "Power Distribution Units (PDUs)",
       "Data-center infrastructure",
-      "Related server and storage requirements",
+      "Server-room layout and infrastructure planning",
+      "Structured cabling and network infrastructure",
+      "Cooling and environmental equipment enquiries",
+      "Data-center expansion and upgrade support",
     ],
     icon: Server,
     relatedProducts: ["Server racks", "UPS systems", "Power distribution units"],
   },
   {
-    slug: "manpower-supply",
-    title: "Manpower Supply",
-    shortTitle: "Manpower supply",
+    slug: "printer-copier-services",
+    title: "Printer and Copier Services",
+    shortTitle: "Print & copier services",
     description:
-      "Skilled workforce supply enquiries shaped around an organization's requirements.",
+      "Supply, service and maintenance support for printers and copiers.",
     introduction:
-      "The company profile describes manpower supply and screening for skilled workforce requirements.",
-    capabilities: [
-      "Manpower supply enquiries",
-      "Skilled workforce requirements",
-      "Role and organizational requirement discussions",
-    ],
-    icon: Users,
-  },
-  {
-    slug: "printer-copier-ups-services",
-    title: "Printer, Copier and UPS Services",
-    shortTitle: "Print, copier & UPS",
-    description:
-      "Supply, service and maintenance support for printers, copiers and UPS systems.",
-    introduction:
-      "Varun Systems' company profile includes printer and copier supply and services, alongside UPS supply, installation, troubleshooting and repair support.",
+      "Varun Systems provides printer and copier supply, servicing, repair and maintenance support for organizational environments.",
     capabilities: [
       "Printer supply, repair and maintenance",
       "Copier supply, chip-level servicing and maintenance",
       "Printer servicing, including chip-level work described in the profile",
-      "UPS supply, installation and repair enquiries",
-      "Support for single- and three-phase UPS systems",
+      "Printer and copier troubleshooting",
+      "Preventive maintenance and repair enquiries",
     ],
     icon: Printer,
     image: "/images/copier-support.webp",
-    relatedProducts: ["Printers", "Copiers", "UPS systems"],
+    relatedProducts: ["Printers", "Copiers"],
+  },
+  {
+    slug: "ups-systems",
+    title: "UPS Systems",
+    shortTitle: "UPS systems",
+    description:
+      "Uninterruptible power supply solutions for backup power, protection and operational continuity.",
+    introduction:
+      "Varun Systems supports UPS system requirements for IT and organizational environments, including supply, installation, maintenance and repair enquiries for single- and three-phase systems.",
+    capabilities: [
+      "Online and offline UPS systems",
+      "Single-phase UPS supply and support",
+      "Three-phase UPS supply and support",
+      "UPS installation and commissioning",
+      "Battery supply and replacement enquiries",
+      "Load assessment and UPS selection",
+      "Preventive maintenance and repair",
+      "UPS troubleshooting and fault support",
+    ],
+    icon: Activity,
+    image: "/images/network-support.webp",
+    relatedProducts: ["UPS systems", "Power distribution units"],
   },
 ];
 
 export const getService = (slug: string | undefined) =>
-  services.find((service) => service.slug === slug);
+  services.find((service) =>
+    service.slug === slug ||
+    ((slug === "network-installation-and-maintenance" || slug === "networking-solutions") &&
+      service.slug === "network-installation-and-networking-solutions") ||
+    (slug === "fire-alarm-and-pa-systems" &&
+      service.slug === "fire-alarm-systems") ||
+    (slug === "printer-copier-ups-services" &&
+      service.slug === "ups-systems") ||
+    ((slug === "computer-maintenance-and-repair" || slug === "annual-maintenance-contracts") &&
+      service.slug === "computer-maintenance-and-amc") ||
+    (slug === "data-center-and-power-solutions" &&
+      service.slug === "data-center-solutions")
+  );
 
 export const serviceDescriptionsBySlug = Object.fromEntries(
   services.map((service) => [service.slug, service.description]),

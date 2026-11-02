@@ -1,4 +1,3 @@
-import { Check } from "lucide-react";
 import Carousel from "../components/Carousel";
 import Seo from "../components/Seo";
 import { industries } from "../data/industries";
@@ -44,27 +43,17 @@ export default function IndustriesPage() {
             </p>
           </div>
           <Carousel label="Industry sectors" autoPlayMs={10400}>
-            {industries.map((group, index) => {
-              const Icon = group.icon;
+            {industries.map((group) => {
               return (
                 <article className="industry-detail-card" key={group.title}>
                   <div className="industry-detail-card__visual">
                     <img src={industryImage(group)} alt="" loading="lazy" />
-                  </div>
-                  <div className="industry-detail-card__header">
-                    <span className="icon-frame icon-frame--tint">
-                      <Icon size={23} strokeWidth={1.65} aria-hidden="true" />
-                    </span>
-                    <span className="industry-detail-card__index">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                   </div>
                   <h3>{group.title}</h3>
                   <p>{group.description}</p>
                   <ul>
                     {group.sectors.map((sector) => (
                       <li key={sector}>
-                        <Check size={15} aria-hidden="true" />
                         <span>{sector}</span>
                       </li>
                     ))}

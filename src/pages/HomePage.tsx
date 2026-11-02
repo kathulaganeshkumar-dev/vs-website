@@ -40,11 +40,6 @@ const strengths = [
     copy: "The company profile identifies public administration, education, healthcare, corporate, manufacturing and service-sector requirements.",
     image: "/images/team-workspace.webp",
   },
-  {
-    title: "Operational services beyond IT",
-    copy: "Manpower supply complements the technology portfolio for organizations coordinating wider support needs.",
-    image: "/images/fire-alarm-systems.webp",
-  },
 ];
 
 export default function HomePage() {

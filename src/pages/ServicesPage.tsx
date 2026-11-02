@@ -21,9 +21,6 @@ export default function ServicesPage() {
               Explore the IT products, technical support and enterprise
               services documented in the Varun Systems company profile.
             </p>
-            <Link className="button" to="/contact?type=Service%20Enquiry">
-              Discuss a requirement <ArrowUpRight size={17} aria-hidden="true" />
-            </Link>
           </div>
           <div className="service-page-visual" aria-hidden="true">
             <div className="service-page-visual__core">

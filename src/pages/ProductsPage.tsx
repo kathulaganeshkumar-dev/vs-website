@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router";
 import ProductCard from "../components/ProductCard";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
@@ -21,9 +19,6 @@ export default function ProductsPage() {
               Browse product categories listed by Varun Systems and send an
               enquiry about the equipment you need.
             </p>
-            <Link className="button" to="/contact?type=Product%20Enquiry">
-              Enquire about a product <ArrowUpRight size={17} aria-hidden="true" />
-            </Link>
           </div>
           <figure className="catalogue-hero-mosaic" aria-hidden="true">
             <img className="catalogue-hero-mosaic__laptop" src="/images/hero-workspace.webp" alt="" />
