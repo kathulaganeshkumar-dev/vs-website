@@ -3440,6 +3440,11 @@ textarea:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .hero-brand-marquee__track {
+    animation-duration: 90s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 /* Site-wide hero photography is layered beneath a contrast overlay. */
@@ -3931,10 +3936,6 @@ textarea:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .hero__video-bg video {
-    animation: none;
-  }
-
-  .hero-brand-marquee__track {
     animation: none;
   }
 }
