@@ -4,7 +4,6 @@ import Carousel from "../components/Carousel";
 import IndustryCard from "../components/IndustryCard";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
-import { brandLogos } from "../data/brands";
 import { industries } from "../data/industries";
 import { services } from "../data/services";
 
@@ -136,34 +135,6 @@ export default function AboutPage() {
             <Link className="text-link" to={`/services/${services[3].slug}`}>
               Explore maintenance support <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="client-section section-pad" aria-label="Our clients">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Our clients"
-            title="Organizations featured in our company profile."
-            body="A selection of client organizations represented in the Varun Systems company profile."
-          />
-          <div className="brand-marquee" role="region" aria-label="Technology brand logos">
-            <div className="brand-marquee__track">
-              {[0, 1].map((copy) => (
-                <ul
-                  className="brand-marquee__group"
-                  key={copy}
-                  aria-hidden={copy === 1 || undefined}
-                  aria-label={copy === 0 ? "Technology brand logos" : undefined}
-                >
-                  {brandLogos.map((brand) => (
-                    <li className="brand-marquee__item" key={`${copy}-${brand.name}`}>
-                      <img src={brand.image} alt={brand.name} loading="lazy" />
-                    </li>
-                  ))}
-                </ul>
-              ))}
-            </div>
           </div>
         </div>
       </section>
