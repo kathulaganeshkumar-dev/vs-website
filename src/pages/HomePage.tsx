@@ -42,7 +42,7 @@ const strengths = [
   },
   {
     title: "Operational services beyond IT",
-    copy: "Facility management and manpower supply complement the technology portfolio for organizations coordinating wider support needs.",
+    copy: "Manpower supply complements the technology portfolio for organizations coordinating wider support needs.",
     image: "/images/fire-alarm-systems.webp",
   },
 ];

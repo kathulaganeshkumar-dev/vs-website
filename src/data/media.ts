@@ -20,7 +20,6 @@ export function serviceImage(service: Service) {
     "interactive-panels": "/images/expertise/interactive-panels.jpg",
     "enterprise-av-and-collaboration": "/images/expertise/enterprise-av-and-collaboration.jpg",
     "data-center-and-power-solutions": "/images/expertise/data-center-and-power-solutions.jpg",
-    "facility-management": "/images/expertise/facility-management.jpg",
     "manpower-supply": "/images/expertise/manpower-supply.jpg",
     "printer-copier-ups-services": "/images/expertise/printer-copier-ups-services.jpg",
   };

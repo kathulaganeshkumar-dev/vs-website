@@ -2,7 +2,6 @@ import type { LucideIcon } from "lucide-react";
 import {
   Activity,
   AppWindow,
-  BatteryCharging,
   Camera,
   Cloud,
   Fingerprint,
@@ -268,22 +267,6 @@ export const services: Service[] = [
     ],
     icon: Server,
     relatedProducts: ["Server racks", "UPS systems", "Power distribution units"],
-  },
-  {
-    slug: "facility-management",
-    title: "Facility Management Services",
-    shortTitle: "Facility management",
-    description:
-      "Engineering and non-engineering facility support for organizational operations.",
-    introduction:
-      "Varun Systems' profile describes facility management across engineering and non-engineering requirements.",
-    capabilities: [
-      "Facility maintenance support",
-      "Engineering-related facility services",
-      "Non-engineering facility services",
-      "Maintenance and operational coordination",
-    ],
-    icon: BatteryCharging,
   },
   {
     slug: "manpower-supply",

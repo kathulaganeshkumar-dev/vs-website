@@ -11,7 +11,7 @@ const capabilities = [
   { title: "Product supply", description: "Computing, print, power, network and interactive equipment for organizational environments.", image: "/images/hero-workspace.webp", icon: Server },
   { title: "Technical services", description: "Computer maintenance, repair, upgrades and remote support for business equipment.", image: "/images/copier-support.webp", icon: Wrench },
   { title: "Infrastructure", description: "Networking, servers, storage, cloud and security systems across connected environments.", image: "/images/network-support.webp", icon: Network },
-  { title: "Operational support", description: "Annual maintenance, facility management and manpower supply services.", image: "/images/team-workspace.webp", icon: Building2 },
+  { title: "Operational support", description: "Annual maintenance and manpower supply services.", image: "/images/team-workspace.webp", icon: Building2 },
 ];
 
 export default function AboutPage() {
