@@ -4,7 +4,7 @@ import Carousel from "../components/Carousel";
 import IndustryCard from "../components/IndustryCard";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
-import { clientOrganizations } from "../data/clients";
+import { brandLogos } from "../data/brands";
 import { industries } from "../data/industries";
 import { services } from "../data/services";
 
@@ -147,13 +147,24 @@ export default function AboutPage() {
             title="Organizations featured in our company profile."
             body="A selection of client organizations represented in the Varun Systems company profile."
           />
-          <ul className="client-logo-grid" aria-label="Client organizations featured in the company profile">
-            {clientOrganizations.map((client) => (
-              <li className="client-logo-grid__item" key={client.name}>
-                <img src={client.image} alt={client.name} loading="lazy" />
-              </li>
-            ))}
-          </ul>
+          <div className="brand-marquee" role="region" aria-label="Technology brand logos">
+            <div className="brand-marquee__track">
+              {[0, 1].map((copy) => (
+                <ul
+                  className="brand-marquee__group"
+                  key={copy}
+                  aria-hidden={copy === 1 || undefined}
+                  aria-label={copy === 0 ? "Technology brand logos" : undefined}
+                >
+                  {brandLogos.map((brand) => (
+                    <li className="brand-marquee__item" key={`${copy}-${brand.name}`}>
+                      <img src={brand.image} alt={brand.name} loading="lazy" />
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
