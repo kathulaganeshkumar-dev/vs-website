@@ -48,8 +48,6 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
     const lastOriginal = cloneCount + children.length - 1;
     const next = nearest + direction;
     const target = Math.max(0, Math.min(slides.length - 1, next));
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     if (wrapTimerRef.current !== undefined) window.clearTimeout(wrapTimerRef.current);
     if (animationFrameRef.current !== undefined) {
       window.cancelAnimationFrame(animationFrameRef.current);
@@ -58,7 +56,7 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
 
     const from = track.scrollLeft;
     const to = slides[target].offsetLeft;
-    if (reducedMotion || Math.abs(to - from) < 1) {
+    if (Math.abs(to - from) < 1) {
       track.scrollLeft = to;
     } else {
       const startedAt = performance.now();
@@ -81,11 +79,7 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
     const wrapsForward = cloneCount > 0 && next > lastOriginal;
     const wrapsBackward = cloneCount > 0 && next < firstOriginal;
     if (wrapsForward || wrapsBackward) {
-      if (reducedMotion) {
-        normalizePosition(track);
-      } else {
-        wrapTimerRef.current = window.setTimeout(() => normalizePosition(track), 1200);
-      }
+      wrapTimerRef.current = window.setTimeout(() => normalizePosition(track), 1200);
     }
   }, [children.length, cloneCount, normalizePosition]);
 
@@ -125,8 +119,7 @@ export default function Carousel({ label, children, autoPlayMs }: CarouselProps)
       !autoPlayMs ||
       !isVisible ||
       hasKeyboardFocus ||
-      children.length < 2 ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      children.length < 2
     ) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) move(1);
